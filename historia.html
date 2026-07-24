@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historia — COMEXA CATERING</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Comexa Catering" class="logo-mark">
+        <!-- <span class="logo-text">COMEXA<span>CATERING AVIACIÓN EJECUTIVA</span></span> -->
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="historia.html" class="active">Historia</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="menu.html">Menú</a></li>
+        <li><a href="novedades.html">Novedades</a></li>
+
+        <li><a href="qr.html">Redes</a></li>
+
+      </ul>
+
+      <a href="#contacto" class="nav-cta">Contacto</a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <p class="section-eyebrow">20 años de experiencia</p>
+      <h1>Nuestra historia</h1>
+    </div>
+  </header>
+  <section class="story">
+    <div class="container">
+      <h2>De Xalapa a los cielos de México</h2>
+      <div class="story-text">
+        <p>Comexa nace originalmente como un restaurante de fina cocina mexicana en la ciudad de Xalapa, Veracruz. Ante la necesidad de servicio de alimentos para la aviación ejecutiva regional, en 1995 se crea el servicio de catering.</p>
+        <p>Posteriormente, Comexa inicia operaciones en el aeropuerto de Toluca, cubriendo las necesidades de la mayor flota de aviones ejecutivos en México y ofreciendo un servicio de catering V.I.P. a los clientes más selectos y exigentes.</p>
+        <p>Con más de 20 años de experiencia, Comexa sigue contando con la preferencia de muchos de sus clientes originales, además de ofrecer servicio a vuelos diplomáticos y aviones con matrícula extranjera. Nuestro menú ofrece la mejor selección de alimentos: internacionales, kosher, light, vegetariano, entre otros.</p>
+        <img src="images/historia-1.jpg" alt="Cocina Comexa Catering" class="story-img">
+      </div>
+    </div>
+  </section>
+
+<section class="pride">
+    <div class="container">
+      <div>
+        <p class="section-eyebrow">Orgullo Comexa</p>
+        <h2>Servicio de confianza al más alto nivel</h2>
+        <p>Comexa ha prestado servicios en el hangar presidencial del AICM para invitados V.I.P., y fue distinguido como el único comisariato oficial en la Cumbre de Negocios 2014, en el Puerto de Veracruz.</p>
+        <div class="pride-tags">
+          <span>Brasil</span>
+          <span>Cuba</span>
+          <span>España</span>
+          <span>Argentina</span>
+          <span>Paraguay</span>
+          <span>Ecuador</span>
+          <span>Y más</span>
+        </div>
+      </div>
+      <div class="pride-cards">
+        <div class="pride-card">
+          <span class="stub">AICM · HANGAR PRESIDENCIAL</span>
+          <h3>Servicio V.I.P.</h3>
+          <p>Atención directa a invitados de alto nivel en el hangar presidencial de la Ciudad de México.</p>
+        </div>
+        <div class="pride-card">
+          <span class="stub">VERACRUZ · 2014</span>
+          <h3>Cumbre de Negocios</h3>
+          <p>Único comisariato oficial de la cumbre, sirviendo a representaciones presidenciales internacionales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer" id="contacto">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <p class="footer-label">Comexa Catering</p>
+        <p>Alimentos para la aviación ejecutiva, diplomática y privada. Más de 20 años de experiencia sirviendo con la mayor higiene y calidad.</p>
+      </div>
+      <div>
+        <p class="footer-label">Contacto</p>
+        <a href="mailto:contacto@comexa-catering.com.mx">contacto@comexa-catering.com.mx</a>
+        <p>722 273 3281</p>
+        <p>722 273 3286</p>
+        <p>722 273 3566</p>
+      </div>
+      <div>
+        <p class="footer-label">Quejas y sugerencias</p>
+        <p>722 264 3850</p>
+        <p class="footer-label" style="margin-top:24px;">Horario</p>
+        <p>Abierto 24 hrs, todos los días de la semana.</p>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>© Comexa Catering — Todos los derechos reservados</span>
+      <span>Alimentos para la aviación ejecutiva</span>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+  </script>
+
+</body>
+</html>

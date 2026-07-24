@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galería — COMEXA CATERING</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Comexa Catering" class="logo-mark">
+        <!-- <span class="logo-text">COMEXA<span>CATERING AVIACIÓN EJECUTIVA</span></span> -->
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="historia.html">Historia</a></li>
+        <li><a href="galeria.html" class="active">Galería</a></li>
+        <li><a href="menu.html">Menú</a></li>
+        <li><a href="novedades.html">Novedades</a></li>
+
+        <li><a href="qr.html">Redes</a></li>
+
+      </ul>
+
+      <a href="#contacto" class="nav-cta">Contacto</a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <p class="section-eyebrow">Un vistazo a bordo</p>
+      <h1>Galería</h1>
+    </div>
+  </header>
+
+  <section class="gallery">
+    <div class="container">
+      <div class="gallery-grid">
+        <div class="gallery-item g-big">
+          <img src="images/galeria-1.jpg" alt="Comexa Catering">
+          <span class="cap">A bordo</span>
+        </div>
+        <div class="gallery-item">
+          <img src="images/galeria-2.jpg" alt="Comexa Catering">
+          <span class="cap">Nuestros platillos</span>
+        </div>
+        <div class="gallery-item g-tall">
+          <img src="images/galeria-3.jpg" alt="Comexa Catering">
+          <span class="cap">A bordo</span>
+        </div>
+        <div class="gallery-item">
+          <img src="images/galeria-4.jpg" alt="Comexa Catering">
+          <span class="cap">Preparación</span>
+        </div>
+        <div class="gallery-item">
+          <img src="images/galeria-5.jpg" alt="Comexa Catering">
+          <span class="cap">Nuestros platillos</span>
+        </div>
+        <div class="gallery-item g-wide">
+          <img src="images/galeria-6.jpg" alt="Comexa Catering">
+          <span class="cap">A bordo</span>
+        </div>
+        <div class="gallery-item">
+          <img src="images/galeria-7.jpg" alt="Comexa Catering">
+          <span class="cap">Detalles</span>
+        </div>
+        <div class="gallery-item g-tall">
+          <img src="images/galeria-8.jpg" alt="Comexa Catering">
+          <span class="cap">Preparación</span>
+        </div>
+        <div class="gallery-item g-wide">
+          <img src="images/galeria-9.jpg" alt="Comexa Catering">
+          <span class="cap">A bordo</span>
+        </div>
+        <div class="gallery-item">
+          <img src="images/galeria-10.jpg" alt="Comexa Catering">
+          <span class="cap">Cocina</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer" id="contacto">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <p class="footer-label">Comexa Catering</p>
+        <p>Alimentos para la aviación ejecutiva, diplomática y privada. Más de 20 años de experiencia sirviendo con la mayor higiene y calidad.</p>
+      </div>
+      <div>
+        <p class="footer-label">Contacto</p>
+        <a href="mailto:contacto@comexa-catering.com.mx">contacto@comexa-catering.com.mx</a>
+        <p>722 273 3281</p>
+        <p>722 273 3286</p>
+        <p>722 273 3566</p>
+      </div>
+      <div>
+        <p class="footer-label">Quejas y sugerencias</p>
+        <p>722 264 3850</p>
+        <p class="footer-label" style="margin-top:24px;">Horario</p>
+        <p>Abierto 24 hrs, todos los días de la semana.</p>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>© Comexa Catering — Todos los derechos reservados</span>
+      <span>Alimentos para la aviación ejecutiva</span>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+  </script>
+
+</body>
+</html>

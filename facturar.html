@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Factura tu pedido — COMEXA CATERING</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Comexa Catering" class="logo-mark">
+        <!-- span class="logo-text">COMEXA<span>CATERING AVIACIÓN EJECUTIVA</span></!-->
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="historia.html">Historia</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="menu_comexa.pdf" target="_blank" rel="noopener">Menú</a></li>
+        <li><a href="novedades.html">Novedades</a></li>
+        <li><a href="portal-clientes.html" class="active">Portal Clientes</a></li>
+        <li><a href="qr.html">Redes</a></li>
+      </ul>
+
+      <a href="#contacto" class="nav-cta">Contacto</a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <p class="section-eyebrow">Facturación</p>
+      <h1>Factura tu pedido</h1>
+    </div>
+  </header>
+
+  <section class="portal-wrap">
+    <div class="container">
+
+      <div class="portal-steps-nav" aria-hidden="true">
+        <span class="is-active"></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="portal-panel">
+
+        <!-- ===================== PASO 1 · LOCALIZAR PEDIDO ===================== -->
+        <div class="portal-step" data-step="1">
+          <div class="portal-panel-head">
+            <h2>Localiza tu pedido</h2>
+            <p>Ingresa los datos de tu servicio para localizar el pedido y continuar con la solicitud de tu CFDI.</p>
+          </div>
+
+          <form id="form-localizar-pedido" novalidate>
+            <div class="portal-form-group">
+              <label class="portal-label" for="folio-pedido">Folio del pedido</label>
+              <input class="portal-input" type="text" id="folio-pedido" name="folio-pedido" placeholder="Ej. COMEXA-2026-000123" required>
+            </div>
+
+            <div class="portal-form-group">
+              <label class="portal-label" for="fecha-servicio">Fecha del servicio</label>
+              <input class="portal-input" type="date" id="fecha-servicio" name="fecha-servicio" required>
+              <p class="portal-help">Encontrarás el folio en tu ticket de servicio. Ingresa también la fecha en que recibiste el servicio para localizar tu pedido.</p>
+            </div>
+
+            <p class="portal-error" id="error-busqueda-pedido" role="alert" aria-live="assertive"></p>
+
+            <div class="portal-actions">
+              <button type="submit" class="btn btn-primary">Buscar pedido</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- ===================== PASO 2 · PEDIDO ENCONTRADO ===================== -->
+        <div class="portal-step" data-step="2" hidden>
+          <div class="portal-panel-head">
+            <h2>Pedido encontrado</h2>
+            <p>Verifica que estos sean los datos de tu servicio antes de continuar.</p>
+          </div>
+
+          <div class="invoice-card">
+            <div class="invoice-row"><span class="label">Folio</span><span class="value" id="resumen-folio"></span></div>
+            <div class="invoice-row"><span class="label">Fecha del servicio</span><span class="value" id="resumen-fecha"></span></div>
+
+            <div class="invoice-items" id="resumen-conceptos"></div>
+
+            <div class="invoice-row"><span class="label">Subtotal</span><span class="value" id="resumen-subtotal"></span></div>
+            <div class="invoice-row"><span class="label">IVA</span><span class="value" id="resumen-iva"></span></div>
+            <div class="invoice-total-row"><span class="label">Total</span><span class="value" id="resumen-total"></span></div>
+          </div>
+
+          <div class="portal-actions">
+            <button type="button" class="btn btn-primary" id="btn-continuar-facturacion">Continuar con facturación</button>
+            <button type="button" class="portal-link-btn" id="btn-no-es-mi-pedido">Este no es mi pedido</button>
+          </div>
+        </div>
+
+        <!-- ===================== PASO 3 · DATOS FISCALES ===================== -->
+        <div class="portal-step" data-step="3" hidden>
+          <div class="portal-panel-head">
+            <h2>Datos fiscales</h2>
+            <p>Captura los datos exactamente como aparecen en tu Constancia de Situación Fiscal.</p>
+          </div>
+
+          <form id="form-datos-fiscales" class="fiscal-form" novalidate>
+            <div class="portal-form-group">
+              <label class="portal-label" for="rfc">RFC</label>
+              <input class="portal-input" type="text" id="rfc" name="rfc" style="text-transform:uppercase;" maxlength="13" required>
+            </div>
+
+            <div class="portal-form-group">
+              <label class="portal-label" for="razon-social">Nombre, denominación o razón social</label>
+              <input class="portal-input" type="text" id="razon-social" name="razon-social" required>
+            </div>
+
+            <div class="portal-form-group">
+              <label class="portal-label" for="codigo-postal">Código postal fiscal</label>
+              <input class="portal-input" type="text" id="codigo-postal" name="codigo-postal" maxlength="5" inputmode="numeric" required>
+            </div>
+
+            <div class="portal-form-group">
+              <label class="portal-label" for="regimen-fiscal">Régimen fiscal</label>
+              <select class="portal-select" id="regimen-fiscal" name="regimen-fiscal" required>
+                <option value="">Selecciona una opción</option>
+                <!-- Opciones demostrativas pobladas por JS, ver poblarSelectsFiscales() -->
+              </select>
+            </div>
+
+            <div class="portal-form-group">
+              <label class="portal-label" for="uso-cfdi">Uso del CFDI</label>
+              <select class="portal-select" id="uso-cfdi" name="uso-cfdi" required>
+                <option value="">Selecciona una opción</option>
+                <!-- Opciones demostrativas pobladas por JS, ver poblarSelectsFiscales() -->
+              </select>
+            </div>
+
+            <div class="portal-form-group">
+              <label class="portal-label" for="correo-fiscal">Correo electrónico para recibir la factura</label>
+              <input class="portal-input" type="email" id="correo-fiscal" name="correo-fiscal" required>
+            </div>
+
+            <div class="portal-check">
+              <input type="checkbox" id="confirma-datos-fiscales" name="confirma-datos-fiscales" required>
+              <label for="confirma-datos-fiscales">He revisado y confirmo que mis datos fiscales son correctos.</label>
+            </div>
+
+            <p class="portal-error" id="error-datos-fiscales" role="alert" aria-live="assertive"></p>
+
+            <div class="portal-actions">
+              <button type="submit" class="btn btn-primary">Revisar factura</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- ===================== PASO 4 · CONFIRMACIÓN ===================== -->
+        <div class="portal-step" data-step="4" hidden>
+          <div class="portal-panel-head">
+            <h2>Confirma tus datos</h2>
+          </div>
+
+          <div class="fiscal-summary-block">
+            <h3>Pedido</h3>
+            <div class="invoice-row"><span class="label">Folio</span><span class="value" id="conf-folio"></span></div>
+            <div class="invoice-row"><span class="label">Fecha</span><span class="value" id="conf-fecha"></span></div>
+            <div class="invoice-row"><span class="label">Subtotal</span><span class="value" id="conf-subtotal"></span></div>
+            <div class="invoice-row"><span class="label">IVA</span><span class="value" id="conf-iva"></span></div>
+            <div class="invoice-row"><span class="label">Total</span><span class="value" id="conf-total"></span></div>
+          </div>
+
+          <div class="fiscal-summary-block">
+            <h3>Datos fiscales</h3>
+            <div class="invoice-row"><span class="label">RFC</span><span class="value" id="conf-rfc"></span></div>
+            <div class="invoice-row"><span class="label">Razón social</span><span class="value" id="conf-razon-social"></span></div>
+            <div class="invoice-row"><span class="label">Código postal</span><span class="value" id="conf-cp"></span></div>
+            <div class="invoice-row"><span class="label">Régimen fiscal</span><span class="value" id="conf-regimen"></span></div>
+            <div class="invoice-row"><span class="label">Uso CFDI</span><span class="value" id="conf-uso"></span></div>
+            <div class="invoice-row"><span class="label">Correo</span><span class="value" id="conf-correo"></span></div>
+          </div>
+
+          <p class="fiscal-warning">Una vez emitido el CFDI, cualquier corrección puede requerir cancelación y una nueva emisión. Verifica cuidadosamente tus datos.</p>
+
+          <div class="portal-actions">
+            <button type="button" class="btn btn-primary" id="btn-emitir-factura">Emitir factura</button>
+            <button type="button" class="portal-link-btn" id="btn-regresar-corregir">Regresar y corregir</button>
+          </div>
+        </div>
+
+        <!-- ===================== PASO 5 · PROCESANDO ===================== -->
+        <div class="portal-step" data-step="5" hidden>
+          <div class="portal-loader-wrap" role="status" aria-live="polite">
+            <div class="portal-loader" aria-hidden="true"></div>
+            <p><strong>Estamos procesando tu factura</strong><br>Esto puede tomar unos segundos. No cierres esta ventana.</p>
+          </div>
+        </div>
+
+        <!-- ===================== PASO 6 · FACTURA GENERADA ===================== -->
+        <div class="portal-step" data-step="6" hidden>
+          <div class="portal-panel-head">
+            <h2>Factura generada correctamente</h2>
+          </div>
+
+          <span class="invoice-badge" id="final-estado">Timbrada</span>
+
+          <div class="invoice-card">
+            <div class="invoice-row"><span class="label">Folio</span><span class="value" id="final-folio"></span></div>
+            <div class="invoice-row"><span class="label">Total</span><span class="value" id="final-total"></span></div>
+          </div>
+
+          <p class="portal-label">UUID</p>
+          <p class="invoice-uuid" id="final-uuid"></p>
+
+          <div class="portal-actions">
+            <button type="button" class="btn btn-outline" data-demo-download title="Disponible al conectar el servicio de facturación.">Descargar PDF</button>
+            <button type="button" class="btn btn-outline" data-demo-download title="Disponible al conectar el servicio de facturación.">Descargar XML</button>
+          </div>
+          <div class="portal-actions">
+            <a href="portal-clientes.html" class="btn btn-primary">Volver al Portal Clientes</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer" id="contacto">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <p class="footer-label">Comexa Catering</p>
+        <p>Alimentos para la aviación ejecutiva, diplomática y privada. Más de 20 años de experiencia sirviendo con la mayor higiene y calidad.</p>
+      </div>
+      <div>
+        <p class="footer-label">Contacto</p>
+        <a href="mailto:contacto@comexa-catering.com.mx">contacto@comexa-catering.com.mx</a>
+        <p>722 273 3281</p>
+        <p>722 273 3286</p>
+        <p>722 273 3566</p>
+      </div>
+      <div>
+        <p class="footer-label">Quejas y sugerencias</p>
+        <p>722 264 3850</p>
+        <p class="footer-label" style="margin-top:24px;">Horario</p>
+        <p>Abierto 24 hrs, todos los días de la semana.</p>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>© Comexa Catering — Todos los derechos reservados</span>
+      <span>Alimentos para la aviación ejecutiva</span>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+  </script>
+  <script src="js/portal-clientes.js"></script>
+
+</body>
+</html>

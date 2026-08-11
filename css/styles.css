@@ -83,8 +83,8 @@
   }
 
   .logo-mark{
-    width: 160px;
-    height: 160px;
+    width: 40px;
+    height: 40px;
     flex-shrink: 0;
     object-fit: contain;
   }
@@ -462,6 +462,26 @@
     color: var(--slate);
     line-height: 1.8;
   }
+
+  .mv-card .btn{
+    margin-top: 22px;
+  }
+
+  /* ============ 7.6 PORTAL CLIENTES — texto introductorio ============ */
+  .portal-intro{
+    background: var(--white);
+    padding: 64px 0 8px;
+    text-align: center;
+  }
+
+  .portal-intro p{
+    max-width: 620px;
+    margin: 0 auto;
+    color: var(--slate);
+    font-size: 15.5px;
+    line-height: 1.85;
+  }
+
   /* ============ 8. ENCABEZADO DE PÁGINA INTERIOR ============ */
   .page-header{
     background: var(--navy);
@@ -896,8 +916,8 @@
   }
 
   .qr-logo{
-    width: 170px;
-    height: 170px;
+    width: 64px;
+    height: 64px;
     margin: 0 auto 28px;
     object-fit: contain;
   }
@@ -1056,3 +1076,382 @@
       justify-content: center;
     }
   }
+
+/* ============================================================
+   PORTAL CLIENTES — FACTURACIÓN
+   Clases nuevas con prefijo portal- / invoice- / fiscal-
+   No modifica ninguna regla existente del sitio.
+   ============================================================ */
+
+.portal-wrap{
+  background: var(--cream);
+  padding: 70px 0 110px;
+}
+
+.portal-panel{
+  background: var(--white);
+  border-top: 3px solid var(--gold);
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 44px 40px;
+}
+
+.portal-panel-head{
+  margin-bottom: 32px;
+}
+
+.portal-panel-head h2{
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.portal-panel-head p{
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.7;
+}
+
+.portal-step{
+  animation: portalFade 0.25s ease;
+}
+
+.portal-step[hidden]{
+  display: none;
+}
+
+@keyframes portalFade{
+  from{ opacity: 0; transform: translateY(6px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+.portal-form-group{
+  margin-bottom: 22px;
+}
+
+.portal-label{
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 8px;
+}
+
+.portal-input,
+.portal-select{
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid rgba(11,31,58,0.18);
+  padding: 13px 14px;
+  border-radius: 2px;
+  transition: border-color 0.2s ease;
+}
+
+.portal-input:focus,
+.portal-select:focus{
+  outline: none;
+  border-color: var(--gold);
+}
+
+.portal-input:focus-visible,
+.portal-select:focus-visible,
+.btn:focus-visible,
+.portal-check input:focus-visible{
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.portal-help{
+  font-size: 12px;
+  color: var(--slate);
+  margin-top: 8px;
+}
+
+.portal-error{
+  font-size: 12.5px;
+  color: #B3392C;
+  margin-top: 8px;
+  display: none;
+}
+
+.portal-error.is-visible{
+  display: block;
+}
+
+.portal-input.has-error,
+.portal-select.has-error{
+  border-color: #B3392C;
+}
+
+.portal-banner{
+  font-size: 13.5px;
+  padding: 14px 16px;
+  border-left: 3px solid #B3392C;
+  background: rgba(179,57,44,0.06);
+  color: #7a2a20;
+  margin-bottom: 24px;
+  display: none;
+}
+
+.portal-banner.is-visible{
+  display: block;
+}
+
+.portal-actions{
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.portal-actions .btn{
+  border-radius: 30px;
+}
+
+.portal-link-btn{
+  background: none;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--slate);
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 13px 6px;
+}
+
+.portal-link-btn:hover{
+  color: var(--navy);
+}
+
+.portal-check{
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.portal-check input{
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.portal-check label{
+  font-size: 13.5px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* ---------- Tarjeta de pedido / factura ---------- */
+.invoice-card{
+  border: 1px solid rgba(11,31,58,0.1);
+  padding: 26px;
+  margin-bottom: 28px;
+}
+
+.invoice-card h3{
+  font-family: var(--font-display);
+  font-size: 17px;
+  color: var(--navy);
+  margin-bottom: 18px;
+}
+
+.invoice-row{
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(11,31,58,0.07);
+  font-size: 14px;
+}
+
+.invoice-row:last-child{ border-bottom: none; }
+
+.invoice-row .label{
+  color: var(--slate);
+}
+
+.invoice-row .value{
+  color: var(--ink);
+  font-weight: 500;
+  text-align: right;
+}
+
+.invoice-items{
+  margin: 18px 0;
+  padding: 16px 0;
+  border-top: 1px dashed rgba(11,31,58,0.15);
+  border-bottom: 1px dashed rgba(11,31,58,0.15);
+}
+
+.invoice-item{
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13.5px;
+  color: var(--ink);
+  padding: 6px 0;
+}
+
+.invoice-item .qty{
+  color: var(--slate);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.invoice-total-row{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 14px;
+  margin-top: 4px;
+  border-top: 2px solid var(--navy);
+}
+
+.invoice-total-row .label{
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.invoice-total-row .value{
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.invoice-badge{
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: #2E7D4F;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.invoice-uuid{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--slate);
+  word-break: break-all;
+  background: var(--cream);
+  padding: 10px 12px;
+  margin-bottom: 20px;
+}
+
+/* ---------- Sección de datos fiscales ---------- */
+.fiscal-form .portal-form-group{
+  margin-bottom: 20px;
+}
+
+.fiscal-summary-block{
+  margin-bottom: 24px;
+}
+
+.fiscal-summary-block h3{
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  border-bottom: 1px solid rgba(198,161,91,0.35);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.fiscal-warning{
+  font-size: 13px;
+  color: var(--slate);
+  background: var(--cream);
+  border-left: 3px solid var(--gold);
+  padding: 14px 16px;
+  margin-bottom: 26px;
+  line-height: 1.7;
+}
+
+/* ---------- Loader ---------- */
+.portal-loader-wrap{
+  text-align: center;
+  padding: 30px 0 10px;
+}
+
+.portal-loader{
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 26px;
+  border-radius: 50%;
+  border: 3px solid rgba(11,31,58,0.12);
+  border-top-color: var(--gold);
+  animation: portalSpin 0.9s linear infinite;
+}
+
+@keyframes portalSpin{
+  to{ transform: rotate(360deg); }
+}
+
+.portal-loader-wrap p{
+  font-size: 13.5px;
+  color: var(--slate);
+}
+
+/* ---------- Botones deshabilitados de descarga ---------- */
+.btn[disabled],
+.btn.is-disabled{
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.portal-steps-nav{
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 auto 40px;
+  max-width: 620px;
+}
+
+.portal-steps-nav span{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(11,31,58,0.15);
+}
+
+.portal-steps-nav span.is-active{
+  background: var(--gold);
+}
+
+@media (max-width: 640px){
+  .portal-panel{
+    padding: 32px 22px;
+  }
+  .portal-actions{
+    flex-direction: column;
+  }
+  .portal-actions .btn,
+  .portal-actions .portal-link-btn{
+    width: 100%;
+    text-align: center;
+  }
+  .invoice-row{
+    flex-direction: column;
+    gap: 2px;
+  }
+  .invoice-row .value{
+    text-align: left;
+  }
+}

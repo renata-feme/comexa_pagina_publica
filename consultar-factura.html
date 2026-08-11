@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultar factura — COMEXA CATERING</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Comexa Catering" class="logo-mark">
+        <!-- span class="logo-text">COMEXA<span>CATERING AVIACIÓN EJECUTIVA</span></!-->
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="historia.html">Historia</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="menu_comexa.pdf" target="_blank" rel="noopener">Menú</a></li>
+        <li><a href="novedades.html">Novedades</a></li>
+        <li><a href="portal-clientes.html" class="active">Portal Clientes</a></li>
+        <li><a href="qr.html">Redes</a></li>
+      </ul>
+
+      <a href="#contacto" class="nav-cta">Contacto</a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <p class="section-eyebrow">Facturación</p>
+      <h1>Consultar factura</h1>
+    </div>
+  </header>
+
+  <section class="portal-wrap">
+    <div class="container">
+      <div class="portal-panel">
+
+        <div class="portal-panel-head">
+          <h2>Consulta el estado de tu factura</h2>
+          <p>Ingresa los datos de tu factura para consultar su estado y volver a descargar tus documentos.</p>
+        </div>
+
+        <form id="form-consultar-factura" novalidate>
+          <div class="portal-form-group">
+            <label class="portal-label" for="consulta-folio">Folio del pedido</label>
+            <input class="portal-input" type="text" id="consulta-folio" name="consulta-folio" placeholder="Ej. COMEXA-2026-000123" required>
+          </div>
+
+          <div class="portal-form-group">
+            <label class="portal-label" for="consulta-rfc">RFC</label>
+            <input class="portal-input" type="text" id="consulta-rfc" name="consulta-rfc" style="text-transform:uppercase;" required>
+          </div>
+
+          <div class="portal-form-group">
+            <label class="portal-label" for="consulta-correo">Correo electrónico</label>
+            <input class="portal-input" type="email" id="consulta-correo" name="consulta-correo" required>
+          </div>
+
+          <p class="portal-error" id="error-consulta-factura" role="alert" aria-live="assertive"></p>
+
+          <div class="portal-actions">
+            <button type="submit" class="btn btn-primary">Consultar</button>
+          </div>
+        </form>
+
+        <div id="resultado-consulta-factura" hidden style="margin-top:36px;">
+          <div class="portal-panel-head">
+            <h2>Resultado de la consulta</h2>
+          </div>
+
+          <span class="invoice-badge" id="c-estado">Timbrada</span>
+
+          <div class="invoice-card">
+            <div class="invoice-row"><span class="label">Fecha de emisión</span><span class="value" id="c-fecha"></span></div>
+            <div class="invoice-row"><span class="label">Total</span><span class="value" id="c-total"></span></div>
+          </div>
+
+          <p class="portal-label">UUID</p>
+          <p class="invoice-uuid" id="c-uuid"></p>
+
+          <div class="portal-actions">
+            <button type="button" class="btn btn-outline" data-demo-download title="Disponible al conectar el servicio de facturación.">Descargar PDF</button>
+            <button type="button" class="btn btn-outline" data-demo-download title="Disponible al conectar el servicio de facturación.">Descargar XML</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer" id="contacto">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <p class="footer-label">Comexa Catering</p>
+        <p>Alimentos para la aviación ejecutiva, diplomática y privada. Más de 20 años de experiencia sirviendo con la mayor higiene y calidad.</p>
+      </div>
+      <div>
+        <p class="footer-label">Contacto</p>
+        <a href="mailto:contacto@comexa-catering.com.mx">contacto@comexa-catering.com.mx</a>
+        <p>722 273 3281</p>
+        <p>722 273 3286</p>
+        <p>722 273 3566</p>
+      </div>
+      <div>
+        <p class="footer-label">Quejas y sugerencias</p>
+        <p>722 264 3850</p>
+        <p class="footer-label" style="margin-top:24px;">Horario</p>
+        <p>Abierto 24 hrs, todos los días de la semana.</p>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>© Comexa Catering — Todos los derechos reservados</span>
+      <span>Alimentos para la aviación ejecutiva</span>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+  </script>
+  <script src="js/portal-clientes.js"></script>
+
+</body>
+</html>

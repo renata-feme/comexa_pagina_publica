@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Clientes — COMEXA CATERING</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Comexa Catering" class="logo-mark">
+        <!-- span class="logo-text">COMEXA<span>CATERING AVIACIÓN EJECUTIVA</span></!-->
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="historia.html">Historia</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="menu_comexa.pdf" target="_blank" rel="noopener">Menú</a></li>
+        <li><a href="novedades.html">Novedades</a></li>
+        <li><a href="portal-clientes.html" class="active">Portal Clientes</a></li>
+        <li><a href="qr.html">Redes</a></li>
+      </ul>
+ 
+      <a href="#contacto" class="nav-cta">Contacto</a>
+ 
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+ 
+  <header class="page-header">
+    <div class="container">
+      <p class="section-eyebrow">Servicio al cliente</p>
+      <h1>Portal Clientes</h1>
+      <p style="font-family: var(--font-body); font-size: 15px; color: rgba(246,244,239,0.8); margin-top: 14px;">Gestiona tus servicios COMEXA de forma rápida y segura.</p>
+    </div>
+  </header>
+ 
+  <section class="portal-intro">
+    <div class="container">
+      <p>Desde este portal podrás realizar gestiones relacionadas con tus pedidos: solicitar la facturación de un servicio ya realizado, o consultar y descargar nuevamente una factura emitida con anterioridad.</p>
+    </div>
+  </section>
+ 
+  <section class="mv">
+    <div class="container">
+      <div class="mv-grid">
+ 
+        <!-- Tarjeta: Facturar un pedido -->
+        <div class="mv-card">
+          <svg class="mv-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 5H31L37 11V43H13V5Z" stroke="#C6A15B" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M31 5V11H37" stroke="#C6A15B" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M18 20H32M18 26H32M18 32H26" stroke="#0B1F3A" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <h3>Facturar un pedido</h3>
+          <p>Solicita tu factura electrónica CFDI de manera rápida y segura.</p>
+          <a href="facturar.html" class="btn btn-primary" data-portal-action="facturar-pedido">Entrar</a>
+        </div>
+ 
+        <!-- Tarjeta: Consultar factura -->
+        <div class="mv-card">
+          <svg class="mv-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="21" cy="21" r="13" stroke="#C6A15B" stroke-width="2"/>
+            <path d="M30.5 30.5L41 41" stroke="#C6A15B" stroke-width="2" stroke-linecap="round"/>
+            <path d="M16 21H26M16 26H23" stroke="#0B1F3A" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <h3>Consultar factura</h3>
+          <p>Consulta el estado de una factura y descarga nuevamente tu PDF y XML.</p>
+          <a href="consultar-factura.html" class="btn btn-primary" data-portal-action="consultar-factura">Entrar</a>
+        </div>
+ 
+      </div>
+    </div>
+  </section>
+ 
+  <footer class="site-footer" id="contacto">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <p class="footer-label">Comexa Catering</p>
+        <p>Alimentos para la aviación ejecutiva, diplomática y privada. Más de 20 años de experiencia sirviendo con la mayor higiene y calidad.</p>
+      </div>
+      <div>
+        <p class="footer-label">Contacto</p>
+        <a href="mailto:contacto@comexa-catering.com.mx">contacto@comexa-catering.com.mx</a>
+        <p>722 273 3281</p>
+        <p>722 273 3286</p>
+        <p>722 273 3566</p>
+      </div>
+      <div>
+        <p class="footer-label">Quejas y sugerencias</p>
+        <p>722 264 3850</p>
+        <p class="footer-label" style="margin-top:24px;">Horario</p>
+        <p>Abierto 24 hrs, todos los días de la semana.</p>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>© Comexa Catering — Todos los derechos reservados</span>
+      <span>Alimentos para la aviación ejecutiva</span>
+    </div>
+  </footer>
+ 
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+ 
+    /*
+      Preparado para conectar cada tarjeta con su futura funcionalidad.
+      Por ahora cada botón "Entrar" navega a una página de marcador de
+      posición (facturar.html / consultar-factura.html).
+      Cuando exista la lógica real (formulario, backend, validación de
+      folio, etc.), solo hay que reemplazar el contenido de esas páginas
+      o cambiar su "href" por la ruta del sistema correspondiente.
+    */
+    document.querySelectorAll('[data-portal-action]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        // Punto de enganche para futura integración (analytics, validación, etc.)
+        console.log('Portal Clientes → acción seleccionada:', el.dataset.portalAction);
+      });
+    });
+  </script>
+ 
+</body>
+</html>

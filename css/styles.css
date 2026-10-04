@@ -1,17 +1,17 @@
 /* ============ 1. VARIABLES DE DISEÑO ============ */
   :root{
-    --navy: #0B1F3A;
-    --navy-light: #16305A;
-    --gold: #C6A15B;
-    --gold-dim: #A5854A;
-    --cream: #F6F4EF;
-    --ink: #1B1F27;
-    --slate: #5B6472;
+    --navy: #352119;
+    --navy-light: #4A3226;
+    --gold: #C99A36;
+    --gold-dim: #A67D28;
+    --cream: #F7F4EF;
+    --ink: #352119;
+    --slate: #6B5D54;
     --white: #FFFFFF;
 
-    --font-display: 'Spectral', serif;
-    --font-body: 'Manrope', sans-serif;
-    --font-mono: 'IBM Plex Mono', monospace;
+    --font-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-mono: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   *{ margin:0; padding:0; box-sizing:border-box; }
@@ -25,6 +25,13 @@
 
   a{ text-decoration:none; color:inherit; }
   img{ max-width:100%; display:block; }
+
+  /* Manual de marca COMEXA — Tipografía, punto 03:
+     "Títulos: Helvetica Bold, mayúsculas y espaciado amplio." */
+  h1, h2{
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
 
   .container{
     max-width: 1180px;
@@ -189,13 +196,13 @@
   /* ============ 4. HERO ============ */
   .hero{
     position: relative;
-    min-height: clamp(440px, 62vh, 620px);
+    min-height: clamp(460px, 66vh, 660px);
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     background: var(--navy);
     overflow: hidden;
-    text-align: left;
+    text-align: center;
   }
 
   .hero::before{
@@ -205,23 +212,65 @@
     background: url('../images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
+    /* Tiñe cualquier fotografía a la paleta café/dorado de marca,
+       en vez de dejar sus colores originales (ej. tonos azules). */
+    filter: grayscale(0.5) sepia(0.55) saturate(1.3) brightness(0.85);
   }
 
   .hero::after{
     content:'';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, transparent 0%, rgba(11,31,58,0.25) 45%, rgba(11,31,58,0.72) 72%, rgba(11,31,58,0.85) 100%);
+    background: linear-gradient(180deg, rgba(53,33,25,0.55) 0%, rgba(53,33,25,0.5) 45%, rgba(53,33,25,0.82) 100%);
   }
 
   .hero-content{
     position: relative;
     z-index: 2;
-    max-width: 680px;
-    padding: 0 60px 0 32px;
+    max-width: 720px;
+    padding: 0 32px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+  }
+
+  .brand-divider{
+    width: 160px;
+    max-width: 50%;
+    height: 1px;
+    background: rgba(201,154,54,0.55);
+    position: relative;
+    margin: 20px auto 26px;
+  }
+
+  .brand-divider span{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .hero-caption{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 36px;
+  }
+
+  .hero-caption .dot{
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin: 0 12px;
+    vertical-align: middle;
   }
 
   .hero-eyebrow{
@@ -230,7 +279,7 @@
     letter-spacing: 0.24em;
     color: rgba(255,255,255,0.9);
     text-transform: uppercase;
-    margin-bottom: 22px;
+    margin-bottom: 0;
     text-shadow: 0 2px 10px rgba(0,0,0,0.4);
   }
 
@@ -266,7 +315,7 @@
     display: flex;
     gap: 18px;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .btn{
@@ -1041,11 +1090,11 @@
   @media (max-width: 600px){
     .hero{
       min-height: auto;
-      align-items: flex-start;
+      align-items: center;
       padding: 56px 0 48px;
     }
     .hero::after{
-      background: linear-gradient(180deg, rgba(11,31,58,0.55) 0%, rgba(11,31,58,0.72) 60%, rgba(11,31,58,0.88) 100%);
+      background: linear-gradient(180deg, rgba(53,33,25,0.55) 0%, rgba(53,33,25,0.62) 60%, rgba(53,33,25,0.85) 100%);
     }
     .hero-content{
       max-width: 100%;
